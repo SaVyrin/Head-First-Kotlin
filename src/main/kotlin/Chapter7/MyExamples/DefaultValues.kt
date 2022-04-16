@@ -4,7 +4,7 @@ package Chapter7.MyExamples
 class Balloon(val color: String = "white", val size: Int = 5)
 
 // function with default values
-fun increaseInLoop(valueToIncrease: Int, iterationsCount: Int = 10000): Int {
+fun increaseInLoop(iterationsCount: Int = 10000, valueToIncrease: Int): Int {
     var resultValue = valueToIncrease
     for (iteration in 1..iterationsCount) {
         resultValue++
@@ -14,10 +14,15 @@ fun increaseInLoop(valueToIncrease: Int, iterationsCount: Int = 10000): Int {
 
 fun main(args: Array<String>) {
     // using default iterationsCount
+    println(increaseInLoop(valueToIncrease = 10))
+
+    /* Won't compile because 10 will be used as iterationsCount param.
+       Arguments must be given in the same order as params.
     println(increaseInLoop(10))
+    */
 
     // using iterationsCount = 300
-    println(increaseInLoop(10, 300))
+    println(increaseInLoop(300, 10))
 
 
     // creating balloon with default values
